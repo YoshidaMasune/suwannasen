@@ -5,9 +5,8 @@ function ListUserItem(props) {
    return (
       <>
          <td>{user.id}</td>
-         <td>{user.id}</td>
-         <td>{user.id}</td>
-         <td>{user.id}</td>
+         <td>{user.username}</td>
+         <td>545</td>
          <td>{user.id}</td>
       </>
    )

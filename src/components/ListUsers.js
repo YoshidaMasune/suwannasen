@@ -13,7 +13,6 @@ function ListUsers(props) {
             <tr>
               <th>ห้อง</th>
               <th>ชื่อ</th>
-              <th>สกุล/ฉายา</th>
               <th>ราคา</th>
               <th>details</th>
             </tr>
