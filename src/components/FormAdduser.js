@@ -1,15 +1,22 @@
-import React, {useState, useEffect} from 'react'
-import { Form, Button, InputGroup } from 'react-bootstrap'
+
+import { Form, Button, Row, Col } from 'react-bootstrap'
 
 
 function FormAdduser(props) {
 
-   const [section, setSection] = useState(1);
-   const [foor, setFoor] = useState(1);
-   const [room, setRoom] = useState(1);
-   const [name, setName] = useState('');
-   const [jaya, setJaya] = useState('');
-   
+   const {
+      section,
+      foor,
+      room,
+      name,
+      jaya,
+      setSection,
+      setFoor,
+      setRoom,
+      setName,
+      setJaya
+    } = props
+
    const input_section = (e) => {
       setSection(e.target.value)
    }
@@ -59,34 +66,37 @@ function FormAdduser(props) {
  
    return (
          <Form onSubmit={push_userinput}>
-            <Form.Group>
-               <Form.Label>สุวรรณเสน</Form.Label>
-               <Form.Select onChange={input_section} value={section}>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-               </Form.Select>
+            <Row>
+               <Form.Group as={Col}>
+                  <Form.Label>สุวรรณเสน</Form.Label>
+                  <Form.Select onChange={input_section} value={section}>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                  </Form.Select>
+                  </Form.Group>
+
+               <Form.Group as={Col}>
+                  <Form.Label>ชั้น</Form.Label>
+                  <Form.Select onChange={input_foor} value={foor} >
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                  </Form.Select>
                </Form.Group>
 
-            <Form.Group>
-               <Form.Label>ชั้น</Form.Label>
-               <Form.Select onChange={input_foor} value={foor} >
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-               </Form.Select>
-            </Form.Group>
+               <Form.Group as={Col}>
+                  <Form.Label>ห้อง</Form.Label>
+                  <Form.Select onChange={input_room} value={room} >
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                  </Form.Select>
+               </Form.Group>
 
-            <Form.Group>
-               <Form.Label>ห้อง</Form.Label>
-               <Form.Select onChange={input_room} value={room} >
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-               </Form.Select>
-            </Form.Group>
-
+            </Row>
+           
          <hr /> 
          <div className="container">
             <Form.Group>

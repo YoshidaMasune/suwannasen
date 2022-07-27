@@ -1,11 +1,37 @@
 import React from 'react'
+import FormAdduser from '../components/FormAdduser';
 
-import NavbarTop from '../components/NavbarTop'
+function AddUser(props) {
 
-function AddUser() {
+  const {
+    section,
+    foor,
+    room,
+    name,
+    jaya,
+    setSection,
+    setFoor,
+    setRoom,
+    setName,
+    setJaya
+  } = props
+
   return (
    <>
-      <div>adduser</div>
+    <div className="container">
+      <FormAdduser 
+        section={section} 
+        foor={foor} 
+        room={room}
+        name={name}
+        jaya={jaya}
+        setSection={setSection} 
+        setFoor={setFoor}
+        setRoom={setRoom}
+        setName={setName}
+        setJaya={setJaya}
+      />
+    </div>
    </>
   
   )
