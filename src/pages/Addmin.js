@@ -1,8 +1,8 @@
+import React from 'react'
+import { Form, Row, Col, Button } from 'react-bootstrap'
 
-import { Form, Button, Row, Col } from 'react-bootstrap'
+function Addmin(props) {
 
-
-function FormAdduser(props) {
    const {
       section,
       foor,
@@ -16,14 +16,9 @@ function FormAdduser(props) {
       setJaya
     } = props
 
+
    const input_section = (e) => {
       setSection(e.target.value)
-   }
-   const input_name = (e) => {
-      setName(e.target.value)
-   }
-   const input_jaya = (e) => {
-      setJaya(e.target.value)
    }
    const input_room = (e) => {
       setRoom(e.target.value)
@@ -56,15 +51,13 @@ function FormAdduser(props) {
       setJaya('');
    
       // validate user_input
-      if(name === '' || jaya === ''){
-         alert("input is not validation")
-      }else{
-         select_futeur()
-      }
+      select_futeur()
    }
- 
+
    return (
-         <Form onSubmit={push_userinput}>
+      <>
+         <div className="container">
+            <Form onSubmit={push_userinput}>
             <Row>
                <Form.Group as={Col}>
                   <Form.Label>สุวรรณเสน</Form.Label>
@@ -95,28 +88,16 @@ function FormAdduser(props) {
                </Form.Group>
 
             </Row>
-           
-         <hr /> 
-         <div className="container">
-            <Form.Group>
-               <Form.Label>ชื่อ</Form.Label>
-               <Form.Control onChange={input_name} value={name} type='text' />
-            </Form.Group>
-
-            <Form.Group>
-               <Form.Label>สกุล/ฉายา</Form.Label>
-               <Form.Control onChange={input_jaya} value={jaya} type='text' />
-            </Form.Group>
 
             <Form.Group className=' d-flex justify-content-end'>
                <Button className='mt-4'  type="submit">
                   create
                </Button>
             </Form.Group>
+            </Form>
          </div>
-         
-      </Form>     
+      </>
    )
 }
 
-export default FormAdduser
+export default Addmin

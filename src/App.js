@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import AddUser from './pages/AddUser';
 import Error from './pages/Error';
-import Manage from './pages/Admin'
+import Addmin from './pages/Addmin'
 import NavbarTop from './components/NavbarTop';
 import EditUser from './pages/EditUser';
 
@@ -28,6 +28,7 @@ function App() {
       <NavbarTop />
       <Routes>
         <Route path='/' element={ <Home /> } />
+
         <Route 
           path='adduser'
 
@@ -47,7 +48,27 @@ function App() {
             /> 
           } 
         />
-        <Route path='addmin' element={ <Manage />} />
+
+        // addmin ROUTE
+        <Route 
+          path='addmin' 
+          element=
+          { 
+            <Addmin 
+              section={section} 
+              foor={foor} 
+              room={room}
+              name={name}
+              jaya={jaya}
+              setSection={setSection} 
+              setFoor={setFoor}
+              setRoom={setRoom}
+              setName={setName}
+              setJaya={setJaya}
+            />
+          }
+        />
+
         <Route path='edit' element={ <EditUser />} />
         <Route path='*' element={<Error /> } / >
       </Routes>
