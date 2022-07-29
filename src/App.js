@@ -27,55 +27,66 @@ function App() {
   return (
     <BrowserRouter>
       <NavbarTop />
-      <Routes>
-        <Route path='/' element={ <Home /> } />
+        <Routes>
+          <Route path='/' element={ <Home /> } />
 
-        <Route 
-          path='adduser'
+          <Route 
+            path='adduser' element=
+            { 
+              <AddUser 
+                section={section} 
+                foor={foor} 
+                room={room}
+                name={name}
+                jaya={jaya}
+                setSection={setSection} 
+                setFoor={setFoor}
+                setRoom={setRoom}
+                setName={setName}
+                setJaya={setJaya} /> 
+            } />
 
-          element=
-          { 
-            <AddUser 
-              section={section} 
-              foor={foor} 
-              room={room}
-              name={name}
-              jaya={jaya}
-              setSection={setSection} 
-              setFoor={setFoor}
-              setRoom={setRoom}
-              setName={setName}
-              setJaya={setJaya}
-            /> 
-          } 
-        />
+        
+          <Route 
+            path='addmin' 
+            element=
+            { 
+              <Addmin 
+                section={section} 
+                foor={foor} 
+                room={room}
+                name={name}
+                jaya={jaya}
+                setSection={setSection} 
+                setFoor={setFoor}
+                setRoom={setRoom}
+                setName={setName}
+                setJaya={setJaya}
+              />
+            }
+          />
 
-        // addmin ROUTE
-        <Route 
-          path='addmin' 
-          element=
-          { 
-            <Addmin 
-              section={section} 
-              foor={foor} 
-              room={room}
-              name={name}
-              jaya={jaya}
-              setSection={setSection} 
-              setFoor={setFoor}
-              setRoom={setRoom}
-              setName={setName}
-              setJaya={setJaya}
-            />
-          }
-        />
-
-        <Route path='edit' element={ <EditUser />} />
-        <Route path='login' element={ <AddminLogin /> } />
-        <Route path='*' element={<Error /> } / >
-      </Routes>
+          <Route 
+            path='edit' 
+            element={ <EditUser 
+                section={section} 
+                foor={foor} 
+                room={room}
+                name={name}
+                jaya={jaya}
+                setSection={setSection} 
+                setFoor={setFoor}
+                setRoom={setRoom}
+                setName={setName}
+                setJaya={setJaya}
+              />
+            } />
+    
+          <Route path='login' element={ <AddminLogin /> } />
+          <Route path='*' element={<Error /> } / >
+        </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
 export default App;

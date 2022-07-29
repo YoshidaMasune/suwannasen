@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { Form, Row, Col, Button } from 'react-bootstrap'
 
+import Foor from '../components/formGroup/Foor';
+import Room from '../components/formGroup/Room';
+import Section from '../components/formGroup/Section';
+
 function Addmin(props) {
    const miterbefore = 1456;
    const [miterafter, setMiterafter] = useState(miterbefore);
@@ -12,20 +16,7 @@ function Addmin(props) {
       setSection,
       setFoor,
       setRoom,
-      setName,
-      setJaya
-    } = props
-
-
-   const input_section = (e) => {
-      setSection(Number(e.target.value))
-   }
-   const input_room = (e) => {
-      setRoom(Number(e.target.value))
-   }
-   const input_foor = (e) => {
-      setFoor(Number(e.target.value))
-   }
+    } = props;
 
    const select_futeur = () => { 
       // CHECK ROOM
@@ -70,33 +61,9 @@ function Addmin(props) {
          <div className="container">
             <Form onSubmit={push_userinput}>
             <Row>
-               <Form.Group as={Col}>
-                  <Form.Label>สุวรรณเสน</Form.Label>
-                  <Form.Select onChange={input_section} value={section}>
-                     <option value="1">1</option>
-                     <option value="2">2</option>
-                  </Form.Select>
-                  </Form.Group>
-
-               <Form.Group as={Col}>
-                  <Form.Label>ชั้น</Form.Label>
-                  <Form.Select onChange={input_foor} value={foor} >
-                     <option value="1">1</option>
-                     <option value="2">2</option>
-                     <option value="3">3</option>
-                  </Form.Select>
-               </Form.Group>
-
-               <Form.Group as={Col}>
-                  <Form.Label>ห้อง</Form.Label>
-                  <Form.Select onChange={input_room} value={room}  >
-                     <option value="1">1</option>
-                     <option value="2">2</option>
-                     <option value="3">3</option>
-                     <option value="4">4</option>
-                     <option value="5">5</option>
-                  </Form.Select>
-               </Form.Group>
+               <Section section={section} setSection={setSection} />
+               <Foor foor={foor} setFoor={setFoor} />
+               <Room room={room} setRoom={setRoom} /> 
             </Row>
 
             <Form.Group>

@@ -1,5 +1,10 @@
+import { Form, Button, Row } from 'react-bootstrap';
 
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import Foor from './formGroup/Foor';
+import Room from './formGroup/Room';
+import Section from './formGroup/Section';
+import Jaya from './formtext/Jaya';
+import Name from './formtext/Name'
 
 
 function FormAdduser(props) {
@@ -14,23 +19,7 @@ function FormAdduser(props) {
       setRoom,
       setName,
       setJaya
-    } = props
-
-   const input_section = (e) => {
-      setSection(e.target.value)
-   }
-   const input_name = (e) => {
-      setName(Number(e.target.value))
-   }
-   const input_jaya = (e) => {
-      setJaya(Number(e.target.value))
-   }
-   const input_room = (e) => {
-      setRoom(Number(e.target.value))
-   }
-   const input_foor = (e) => {
-      setFoor(Number(e.target.value))
-   }
+    } = props;
 
    const select_futeur = () => { 
       // CHECK ROOM
@@ -66,47 +55,15 @@ function FormAdduser(props) {
    return (
          <Form onSubmit={push_userinput}>
             <Row>
-               <Form.Group as={Col}>
-                  <Form.Label>สุวรรณเสน</Form.Label>
-                  <Form.Select onChange={input_section} value={section}>
-                     <option value="1">1</option>
-                     <option value="2">2</option>
-                  </Form.Select>
-                  </Form.Group>
-
-               <Form.Group as={Col}>
-                  <Form.Label>ชั้น</Form.Label>
-                  <Form.Select onChange={input_foor} value={foor} >
-                     <option value="1">1</option>
-                     <option value="2">2</option>
-                     <option value="3">3</option>
-                  </Form.Select>
-               </Form.Group>
-
-               <Form.Group as={Col}>
-                  <Form.Label>ห้อง</Form.Label>
-                  <Form.Select onChange={input_room} value={room} >
-                     <option value="1">1</option>
-                     <option value="2">2</option>
-                     <option value="3">3</option>
-                     <option value="4">4</option>
-                     <option value="5">5</option>
-                  </Form.Select>
-               </Form.Group>
-
+               <Section section={section} setSection={setSection} />
+               <Foor foor={foor} setFoor={setFoor} />
+               <Room room={room} setRoom={setRoom} /> 
             </Row>
            
          <hr /> 
          <div className="container">
-            <Form.Group>
-               <Form.Label>ชื่อ</Form.Label>
-               <Form.Control onChange={input_name} value={name} type='text' />
-            </Form.Group>
-
-            <Form.Group>
-               <Form.Label>สกุล/ฉายา</Form.Label>
-               <Form.Control onChange={input_jaya} value={jaya} type='text' />
-            </Form.Group>
+            <Name name={name} setName={setName} />
+            <Jaya jaya={jaya} setJaya={setJaya} />
 
             <Form.Group className=' d-flex justify-content-end'>
                <Button className='mt-4'  type="submit">
